@@ -1,0 +1,100 @@
+{
+  "url": "https://www.ford.com/new-trucks/?intcmp=hp-cta-veh-segment-trucks",
+  "source": "bd",
+  "detection": {
+    "isError": false,
+    "isBotProtection": false
+  },
+  "timestamp": "2026-09-09T20:51:04.086Z",
+  "paths": {
+    "documentPath": "/new-trucks/index",
+    "htmlFilePath": "/new-trucks/index.plain.html",
+    "mdFilePath": "/new-trucks/index.md",
+    "dirPath": "/new-trucks",
+    "filename": "index"
+  },
+  "screenshot": ".migration/scrape-ford-trucks/screenshot.png",
+  "html": {
+    "filePath": ".migration/scrape-ford-trucks/cleaned.html",
+    "size": 699240
+  },
+  "rawHtml": {
+    "filePath": "/backups/jsalazaratadobe/scdemos/repo/tools/importer/bd-snapshots/www.ford.com/new-trucks.html",
+    "size": 472240
+  },
+  "metadata": {
+    "title": "New Trucks or Pickups | Pick the Best Truck for You | Ford.com",
+    "referrer": "origin",
+    "viewport": "width=device-width, initial-scale=1.0",
+    "description": "Explore the new trucks and pickups from Ford's lineup. Research MPG, performance, pricing and more--and select the best option for you.",
+    "content-page-ref": "pQvTTqDNLOodqn-kdOpQHwiR9PB0CfLYiyNzOFC28DJ49-T9W5WcLtkigU_cSeMpuX5DLAELN8kcObodQWtduQ",
+    "og:type": "website",
+    "og:title": "New Trucks or Pickups | Pick the Best Truck for You | Ford.com",
+    "og:description": "Explore the new trucks and pickups from Ford's lineup. Research MPG, performance, pricing and more--and select the best option for you.",
+    "og:image": "/acslibs/content/dam/na/ford/en_us/images/brand/Ford_OG_1200x630.jpg",
+    "og:site_name": "https://www.ford.com/",
+    "fb:app_id": "22166130048",
+    "article:modified_time": "2026-09-02T19:55:40Z",
+    "twitter:title": "New Trucks or Pickups | Pick the Best Truck for You | Ford.com",
+    "twitter:description": "Explore the new trucks and pickups from Ford's lineup. Research MPG, performance, pricing and more--and select the best option for you.",
+    "twitter:image": "/acslibs/content/dam/na/ford/en_us/images/brand/Ford_OG_1200x630.jpg",
+    "twitter:site": "https://x.com/Ford",
+    "twitter:creator": "https://x.com/Ford",
+    "canonical": "https://www.ford.com/new-trucks/"
+  },
+  "images": {
+    "count": 42,
+    "mapping": {
+      "https://dpm.demdex.net/ibs:dpid=1957&dpuuid=30A042A6810B61812CF1556980AC60A3": "./images/96ef5b4a724716725390fd417ea6acab.png",
+      "https://dpm.demdex.net/ibs:dpid=771&dpuuid=CAESEIeAuDPpg1-04VqoWvc-Bhs&google_cver=1?gdpr=0&gdpr_consent=": "./images/677f8cc7de664719f6f418b66279797c.png",
+      "https://dpm.demdex.net/ibs:dpid=67587&dpuuid=F8087059AC8C47BD9B62A6DBC03502A7": "./images/bd42428c07a78da271fb0e649e67442a.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:6191bf7d-9e52-4f58-b130-2c60d5381f64/as/26_FRD_FSD_90A4268_V4_F350_Lariat_ArgonBlue_NS.webp?max-quality=75&crop-names=1_3x2&width=1920": "./images/5927b395d949114831dc5d3870bf971b.png",
+      "https://cdn.cookielaw.org/logos/1d20b685-0942-4b4d-a0af-b799c97f5cf6/a5395623-e427-4e08-8233-d9f92d82abc7/4e9a489c-ad01-4d4b-9eb6-7a8d839d1837/1280px-HD_transparent_picture.png": "./images/4a482463fc55cb82da891abdb7c6f556.png",
+      "https://flaticons.net/icon.php?slug_category=mobile-application&slug_icon=close": "./images/3627f8fce13a212d91f329b02a014c9d.png",
+      "https://dpm.demdex.net/ibs:dpid=903&dpuuid=6931dc06-7d67-46e4-846a-740bdcbaec42": "./images/cd0659bad9ff3c08393c92c930ae7fc9.png",
+      "https://s.amazon-adsystem.com/ecm3?ex=adobe.com&id=03979520867445816763920304682249973933": "./images/71b7c389cb9b3b10c078962812bcac9c.png",
+      "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg": "./images/a9584a367ebcccfac48987ce1fec5eae.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:2b03466c-bc34-4fda-8f9e-90b1a1ddfde2/as/26_FRD_RGR_60682_rapt_shelter.webp?max-quality=75&crop-names=1_3x2&width=1920": "./images/beee76e71ecef4a9b9b5984ca39af7bd.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:951fa635-ee43-4591-acc0-372fa7bf555a/as/26_FRD_F15_64541.webp?max-quality=75&crop-names=1_3x4&width=1920": "./images/a80bc54bb4514aaffca96e9f6e8b62e7.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:fb427b84-9d8f-4877-bc1c-869119856a9d/as/27_FRD_FSD_64962_F350_Plt_NeptuneBlue.webp?max-quality=75&crop-names=1_3x4&width=1920": "./images/51cd3df398e404816a8b0356695fc658.png",
+      "https://www.google.com/pagead/1p-user-list/611960246/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3PthFTEZkHoAPguAj0kx8oST0iLVpGAa1dEy0jTlVqBMwj0J-HGUu5WfrZt3p_XTGdjcfcKOoYHpm0B3wz0UOKkWyWtOyvxPqbsspgUtCunSWcAG-g-yBfKmu4Lxi7Fggu9SXdEsXUC6JbiTpw32YOQxhOUIeeHQLJXl2Py5BT8rBNbU9Yw1YYnFrFyqod9CFZSFiw8pMPQhCguP2iF2-1O0o6QxVaWsVhRS2JaZqWHQ2GILp8CqusHfEjf11LjE4Y3mW6SnUGKzglyFhRgxeJXdAiyH4sHCj_2PxDc&random=1777156840": "./images/b61d277cdb0d54d130bb7c5bd9449106.png",
+      "https://www.google.com/pagead/1p-user-list/661732199/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3CrA5prDPD2QmIGFDlj3AXroHPRgelGMoj10N6c8F5jYhIsClvr7uaSHEYMouZYU-ApIKyFxg93UIeTpx2sxvT-ZQWL2MKe1amksCC8FciOYijpwG5wx_ZTdEmIqzPIjZTC4Ugrj9HAhooZ-qUAtnEAHynsmUFbNhpSY8n6qXgGP6iM7kQmAnEQKVbVeGL7sg9e3HpJf0kjBPEyu_TpM2657s5JcvbDAFfdP0HGG2OdXUWZ3B_hhM7jwnLDMGWagtDs70hpvq3udNbQl9pu2MvvC7TeK9ez2IjynyOE&random=225521473": "./images/d5bfdad779493d973e31981d8942e0fb.png",
+      "https://www.google.com/pagead/1p-user-list/750182254/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3GDxJXAX_emj-xPElljR5zStPHTNIlX-0xrqbrs9mkkC-AfbqHXEcm6TtIh4dfFYCgOaR8tmMSaQmpHtkUnmmWLY3sCmUROWVf-wJDpNeTdh6KYaW0IMzq5P-YtgOFUA368BoCcZAMfj5KN9Amhcwszig9yMB7Kk866SaGDoyoROFrYFSkFezghknhIZntWBrRxhAxl7Bu5keEEHt2k_Rufp6qxJXO76pHuJGnPQvqsUcA7iIS5YxDubLfforxpL2enpH_zWnicrtYcqtOUNB9Ff3naxst2MuZCJY90&random=717122469": "./images/dbdd35989077662fedc7fd5eb82e937b.png",
+      "https://www.google.com/pagead/1p-user-list/595001158/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3AKYIRl2ULf9U3ACaiIUTtTU1OK-gQkJJvYey2HKRSWyBF3ThwbH13-3lWMoGQi7TvTNJr-3XX-71ICekbZQWfRejE-Teowjlg6gUqnqstClRLxNmQ7RsJWSEQFGokQEEjqwQ81NScB7sSTnQcSaW_pv-eA2GEPJLdUexi03wyrAb2RZzuzKvRAZfwvBM0ripq8DGxTWKQJKY4hKV_XDFefUcVSWoPt3RmZS7lbFJSMdwT6UyaUfTOknwk_nuRJK2667AHsBBY0Ya9uNbsHNIyGz2i0B1oeR0i5r-rE&random=3158430664": "./images/e7fb55465c5f5f13cdd102293574a9c6.png",
+      "https://www.google.com/pagead/1p-user-list/975435255/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3FFM99Tf7wJ33jDCHamHYOa86cXFWd4njbZjRW-KU41aNtKQBjOXPUnsRsEZqBvlGoYRCbGvHj-5n4s0w6OpNMiQm3YYez5yVGx1gcC7cAdQ6Czfd9sZQencI_UZlAKRcEfrZsaymisD63fnY88WUfg7DGS-ozvrbqvTKec27fWKm_W0wDb0rnpRPmPm9dzsXcigl0in_yRxD-9OAqseywzEO9mQ7hmd13MGWV437Ed6PWCEoG7XnORbn9OaWRfIe9AS1nOfPNqS9CE1_Q7y77AvPQsCmbK5UEtzWWc&random=3167411660": "./images/7ed5d04dc8bf7d2950f83c450a556645.png",
+      "https://www.google.com/pagead/1p-user-list/770118612/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3AtGBBQc7EMh6sixSxJ0ZPq5Q3Y1PFIv8GPa_aMNy9oMEN-D4V0D8FYet9lE_qklw-N8j0x8OZDE_IxnAtfXZ7imwNhJNIxBKZJAeioQaZfse37oU7PcRZo5jjR4ln1435XVo_3md3l6PeM8wO5qllhKEYdCj4KhZ3NpFUxjlLbS7aqBXA1dIMTFtSDw_ZBez3Y6jjDUrnINZ_4Bi5e4poEVPflAz1QsNKyTL7EnQe6IEZESL6jXEi3Q3l--5NvecRvCeh0QTtlZ6tunLP0pocOx_Mj9qZ4fqirBmK4&random=1753020400": "./images/861383b4df8e11c1eee961d4dc50efd1.png",
+      "https://www.google.com/pagead/1p-user-list/963916796/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3J6z8cCC6v7FzurKz-97CefEGpvcdsPgbaAguX_EoR8aAZlbRacsN0u4Jeikt-nFPix5z-I8X0iy1QKZqX_LULMCLGw1lLEVgALMG5VTmSsmh_gbwItB25h6YmseVCdr7EOxAFMEP8qLimhiIBqTHt-lVQTjrKdUUci6qmpwkF35fvHbVzaFIokfD4ss49UMQ7gachOEBzpgxHkGt4wQQsVXlzcOvp0_2WI3xr-IMbW8REH2Dq8-GgIUvJfeqp9ZnF8evhKL020MqXWVeKsy7uLEjNGhO3uTk6LNRcw&random=381913212": "./images/dd3fc7023988e57ef5410bc1c7e47785.png",
+      "https://www.google.com/pagead/1p-user-list/18383769431/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3IluKEkM3TscZGjWPJPdvpbmM5m44GdUzSkGuljYsizEXSypRqNSwNGSAYptA4tTsZkkuBk9Uqs7_wtFIkmPHvpZNhfnflr7kN0TGXIe3EbetWdRgkN4UP73hQ_xi_-cSk2Sc5PcRVUVaDd3d7uUaFanjwMoZqCypSb3Oq9BDmF6BEMec9LSdUYirQcgM783h9nnX1n37S77-kCpdlwlezF59GMACLb2_g7f3o2IbGGhei9tUDPvNxcwdRpO6UmIqgirbZhKS_uyc150MoIl0FePttW066gxS2ptOYs&random=1445459064": "./images/d31fe0e2bcf88c6f7203a89809f09163.png",
+      "https://www.google.com/pagead/1p-user-list/10937048297/?value=0&guid=ON&script=0&data=aam=23842675&ad_user_data=granted&ad_personalization=granted&is_vtc=1&cid=CAQS4QEAQM4h3P0v_6Bn7v9wiPjP9ZVVUzj0ylM0fhQ7puYUIBOePFYMDGu2Zz7bCcrbdf5jbqPPK9kEMpZgccda-B5sOomFp4uBbknaGpIyr8BKojYjpKwY4vcnDqtuQobe-DWsmWLKt_oH2sz4fiOee5Ciqc4GUkGVZG40KX4s90FZiUAy_orV_1ta4seMorQdbZe6XGusETlBJEyxK5X7LWdzCTOQuyk_qAZQgmSJ4LqfQsCbyf4gtkXMEyeIxqTjNPlIRbfuZ4-I_zye5SyXwnDJhyfaqfYSYU0Et1ffHXhkr1g&random=4218982792": "./images/179d2de94d29c0090ce4225129aa3f66.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:e4f855a0-c50e-4662-85b6-8024309d5385/as/26_FRD_TRN_47601_PK.webp?max-quality=75&crop-names=1_3x2&width=1920": "./images/9095b1735bdfc0ad1325fef561011ce1.png",
+      "https://pixel.everesttech.net/px2/2519?px_evt=t&ev_ford_fdvisits_un_fordbfn=1&ev_transid=1": "./images/d91c93fca96e60ec39d45c44a88fa888.png",
+      "https://www.google.com/gmp/conversion/_dc_unique_id=2674938004943996405;_dc_ptd=ChAI8IeE1QYQ6ei74eSS38ooEh8ANywbF0mj5w5-tQwd9ZjJI1dRMMOioRGriygwlR3F;_dc_time=1788987044;cid=CAQS4QEAQM4h3G05As0k00-ai-PhCw_cvsvp4jmmCKFQJsk836vg6XyiXZdlH1ZC5jzy9EC0UbDmnWZMNeiCjEHTCWV2Ax28HIKlYVc4S1abKca3S_GIpQRfx_6o8Yy3cpRXu2-WAHWKHvqMQ-ZiwVGFJyTJScdimPKFeJCrRrMud8FpWXKk2fnkfWn90Nwjgwc-JzReEAA5oBKTI4lTYHclc3S3yaHtw-RZ3R4KVKJBEgPw0EBtYvYS0Gvgipgy7HBaTlIl2hAU-6xsdPizXSCgq6Djxzbon5EELgh6dOLG16KgM54;eps=AHas8cDCU3SQSEWZZxjuXlAdccN5iMbY-9zAzMHjuWwrFNPIUQnhm3sUL4a6TFXj7I8ekL6jkoV90ctMWCs9i6G4C8d6V7NCYof1gAa8SK7Y8brUbw;dc_pre=CNuEpYqw4pYDFekoaAgd8rw4RQ;src=690327;type=fdvisits;cat=fordbfn;u1=na;u2=na;u3=04223581241363588403908829253824927033;u4=undefined;u5=20163;u6=na;u7=na;u8=na;u9=na;u10=na;u11=na;u12=na;u13=na%3Ana%3Ana;u14=fdaf-27a;u15=eng%3Aui%3Arad%3Apc;u16=00279;u17=na;u18=na;u19=fv%3Alp%20veh-segment%3Anew%20trucks;u20=https%253A%252F%252Fwww.ford.com%252Fnew-trucks%252F%253Fintcmp%253Dhp-cta-veh-segment-t;u21=;u22=;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1;num=6114619334010.22?": "./images/e107c7a2b11b7b344b492053b69a155b.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:0fb3baf0-8003-4e06-bbc2-8540b21fcbae/as/26_FRD_MAV_54238.webp?max-quality=75&crop-names=1_3x2&width=1920": "./images/4a42ef36db52fc68733a07f3ab4dd836.png",
+      "https://pixel.everesttech.net/2519/t?ecvid=04223581241363588403908829253824927033&ef_rand=2&ev_ford_t1_un_slp=1&ev_transid=1&linkId=195876941788987046": "./images/8d9e703840d7547965ffe5e85caa66cd.png",
+      "https://cm.g.doubleclick.net/pixel?google_nid=everest&google_cm&google_sc&ev_rs=1&url=/1x1&google_hm=YXFIR3BBQUFBZS1ZclQ5eA": "./images/f5ef6105a417fcc3e0cf1a1896b9606e.png",
+      "https://match.adsrvr.org/track/cmf/rubicon?gdpr=0": "./images/3e27f9f944227447d6b64a1be195ebf3.png",
+      "https://www.google.com/gmp/conversion/_dc_unique_id=7874905310621920526;_dc_ptd=ChAI8IeE1QYQ6ei74eSS38ooEh8ANywbF1um6UjmX3_NO9WfNwLzmkQfIv0EbT3wTxh0;_dc_time=1788987045;cid=CAQSvgEAQM4h3PqCShSBG6B0ecnlgv_DSzipK9brS3Nlyt8hm5FRLGzJQsJmpMnmeWfZcvVfS2h-YuWbOKh4y_c3iu_ixRkck07PNYc7o6tmZzqPfYNVwdu5Qi-IyICnE1JVsJEBXZzf_i0ir-WHvMUtQIGx6D5RSl6Q-y2k2oltpGlijva72ThQH41Mj_Giv3dGkkp-_TrmEfXRyaSNOlyc4-j1mMGz5kZYMZ2cxpayZe45VxfkqfmOGv69cD6rR4k1;eps=AHas8cB_OElsYgdDKtCRO1zI0kFBOxF-3595ToIFkIiXK3w9zdk58l4Im8YKn65z5pILPb8aH94YIEVXYLhH3lvuwjOYjPemLmMxFRE7s8YQbEysOw7C;dc_pre=CKKB5Iqw4pYDFXRIRwEdjWoy1Q;src=11328183;type=ctford;cat=fordbfn;u1=na;u2=na;u3=04223581241363588403908829253824927033;u4=undefined;u5=20163;u6=na;u7=na;u8=na;u9=na;u10=na;u11=na;u12=na;u13=na%3Ana%3Ana;u14=fdaf-27a;u15=eng%3Aui%3Arad%3Apc;u16=00279;u17=na;u18=na;u19=fv%3Alp%20veh-segment%3Anew%20trucks;u20=https%253A%252F%252Fwww.ford.com%252Fnew-trucks%252F%253Fintcmp%253Dhp-cta-veh-segment-t;u21=;u22=;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1;num=4608544670101.918?": "./images/2c0b7aa65897f79210af11af056b96fc.png",
+      "https://match.adsrvr.org/track/cmf/appnexus?ttd=1&anid=5113824665403759758&ttd_tdid=6931dc06-7d67-46e4-846a-740bdcbaec42": "./images/fccecb5679bb83f518df87149fecde37.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:74cfa4f2-0fcc-414a-acc7-c409c87289ec/as/26_FRD_TRN_66167_BEV_PRO_Canada.webp?max-quality=75&crop-names=1_3x2&width=1920": "./images/d0c4bcafda51ae59586da638b4b54105.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:1f75912e-5f13-440e-9538-f9e770ee96f6/as/26_FL11648224_TRAN_Pro_34FrntPassWorkersAtConstructionSite_mj.webp?max-quality=75&crop-names=1_3x2&width=1920": "./images/e67fe911ca35839209f167a1908f691d.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:4ed8037b-cb81-4aa7-b685-3a8881569f66/as/25_FRD_F15_51102_PlatinumPlus.webp?max-quality=75&crop-names=1_3x2&width=1920": "./images/73d8ff99cb83c9490438b12a61f3a1cd.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:951fa635-ee43-4591-acc0-372fa7bf555a/as/26_FRD_F15_64541.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/a06047584efde084c376201d70e607b1.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:2b03466c-bc34-4fda-8f9e-90b1a1ddfde2/as/26_FRD_RGR_60682_rapt_shelter.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/33494ace6b028cf2d145bdfd86f4ccb0.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:74cfa4f2-0fcc-414a-acc7-c409c87289ec/as/26_FRD_TRN_66167_BEV_PRO_Canada.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/7b9f3e2c2a13ee5d08e91c3ff1e1883b.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:0fb3baf0-8003-4e06-bbc2-8540b21fcbae/as/26_FRD_MAV_54238.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/ba7c815f53f1b872666af40313d086a2.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:4ed8037b-cb81-4aa7-b685-3a8881569f66/as/25_FRD_F15_51102_PlatinumPlus.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/c54bdfc7cd9b76b2527d80e2ca67c9ab.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:fb427b84-9d8f-4877-bc1c-869119856a9d/as/27_FRD_FSD_64962_F350_Plt_NeptuneBlue.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/78b12f3cfa171148cf8b5e39cdec4445.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:e4f855a0-c50e-4662-85b6-8024309d5385/as/26_FRD_TRN_47601_PK.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/ec68b38d99e681bd05e14a7f4f4a75ed.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:6191bf7d-9e52-4f58-b130-2c60d5381f64/as/26_FRD_FSD_90A4268_V4_F350_Lariat_ArgonBlue_NS.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/9fabfc7b95c77e53da6a7e94c6ee015c.png",
+      "https://www.assets.ford.com/adobe/assets/urn:aaid:aem:1f75912e-5f13-440e-9538-f9e770ee96f6/as/26_FL11648224_TRAN_Pro_34FrntPassWorkersAtConstructionSite_mj.webp?max-quality=75&crop-names=1_2x3&width=768": "./images/caf0560374d2c1f45f8d987aa9541c6d.png"
+    },
+    "stats": {
+      "total": 77,
+      "converted": 37,
+      "skipped": 5,
+      "failed": 34,
+      "tooLarge": 0,
+      "limitReached": 0
+    }
+  }
+}

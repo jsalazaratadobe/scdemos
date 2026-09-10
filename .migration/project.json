@@ -1,0 +1,10 @@
+{
+  "sites": {
+    "scdemos": {
+      "previewOrg": "jsalazaratadobe",
+      "previewSite": "scdemos",
+      "contentHostUrl": "https://content.da.live/jsalazaratadobe/scdemos/",
+      "botProtected": true
+    }
+  }
+}

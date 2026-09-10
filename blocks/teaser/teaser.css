@@ -47,6 +47,250 @@ main .teaser > div > div a:hover {
   }
 }
 
+/* ==========================================================================
+   Feature variant — two-up (image + text), matching ford.com "Find What Fits You"
+   Author structure: two cells in the row — one with an image, one with the copy.
+   ========================================================================== */
+main .teaser.feature {
+  background: none;
+  border: none;
+  border-radius: 0;
+  text-align: start;
+  font-family: var(--font-family);
+  font-weight: 400;
+}
+
+main .teaser.feature:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+main .teaser.feature > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--space-l);
+  padding: 0;
+}
+
+/* Image cell */
+main .teaser.feature > div > div:has(picture) {
+  line-height: 0;
+}
+
+main .teaser.feature picture,
+main .teaser.feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Text cell */
+main .teaser.feature > div > div:not(:has(picture)) {
+  padding: 0 var(--content-padding-inline);
+}
+
+main .teaser.feature :is(h2, h3, h4) {
+  margin-top: 0;
+  font-family: var(--font-family);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: light-dark(var(--color-ink), var(--color-parchment));
+}
+
+/* Remove the global h2 gradient accent bar — source has no line under the heading.
+   Specificity must beat the global ".section ... h2::after" rule in lazy-styles.css. */
+main .teaser.feature.feature.feature :is(h2, h3, h4)::after {
+  content: none;
+  display: none;
+}
+
+main .teaser.feature p {
+  color: light-dark(var(--color-gray-700), var(--color-muted));
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+}
+
+/* Links render as plain text (Ford style), not EDS buttons/pills */
+main .teaser.feature > div > div .button-container {
+  margin: var(--space-m) 0 0;
+}
+
+main .teaser.feature > div > div a,
+main .teaser.feature > div > div a.button:any-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--color-ford-blue-bright);
+  box-shadow: none;
+  transform: none;
+}
+
+main .teaser.feature > div > div a.button:any-link::after {
+  content: none;
+}
+
+main .teaser.feature > div > div a:hover {
+  color: var(--color-ford-blue-bright);
+  text-decoration: underline;
+  text-decoration-color: var(--color-ford-blue-bright);
+}
+
+/* Secondary link (e.g. Vehicle Details): the final link, muted + underlined */
+main .teaser.feature > div > div > p:last-child a,
+main .teaser.feature > div > div > p:last-child a.button:any-link {
+  color: light-dark(var(--color-gray-700), var(--color-muted));
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+@media (width >= 900px) {
+  main .teaser.feature > div {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-l);
+    padding: 0;
+  }
+}
+
+/* ==========================================================================
+   Spotlight variant — Ford "From the Road" article promo.
+   Author structure: two cells — text panel first, then a large image.
+   Gray text panel (2/5) + image (3/5), with a solid blue "Read More" pill.
+   ========================================================================== */
+/* stylelint-disable no-descending-specificity -- variant selectors intentionally follow the feature variant */
+main .teaser.spotlight {
+  background: none;
+  border: none;
+  border-radius: 0;
+  text-align: start;
+  font-family: var(--font-family);
+  font-weight: 400;
+}
+
+main .teaser.spotlight:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+main .teaser.spotlight > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: var(--space-m);
+  padding: 0;
+}
+
+/* Text panel */
+main .teaser.spotlight > div > div:not(:has(picture)) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+  padding: var(--space-l) var(--content-padding-inline) var(--space-xl);
+  background: light-dark(var(--color-gray-100), var(--color-card-dark));
+  border-radius: 16px;
+}
+
+main .teaser.spotlight :is(h2, h3, h4) {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: clamp(1.5rem, 3.5vw, 2.625rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: light-dark(var(--color-ford-twilight), var(--color-parchment));
+}
+
+/* No accent bar under the heading (beats the global ".section ... h2::after"). */
+main .teaser.spotlight.spotlight.spotlight :is(h2, h3, h4)::after {
+  content: none;
+  display: none;
+}
+
+main .teaser.spotlight p {
+  margin: 0;
+  color: light-dark(var(--color-gray-700), var(--color-muted));
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+}
+
+/* "Read More" renders as a solid Ford-blue pill, not a plain link */
+main .teaser.spotlight > div > div .button-container {
+  margin: auto 0 0;
+}
+
+main .teaser.spotlight > div > div a,
+main .teaser.spotlight > div > div a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0 var(--space-l);
+  height: 64px;
+  border: none;
+  border-radius: 400px;
+  background: var(--color-ford-blue-bright);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--color-light);
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+main .teaser.spotlight > div > div a.button:any-link::after {
+  content: none;
+}
+
+main .teaser.spotlight > div > div a:hover,
+main .teaser.spotlight > div > div a.button:any-link:hover {
+  background: var(--color-ford-blue-hover);
+  color: var(--color-light);
+  text-decoration: none;
+  transform: none;
+}
+
+/* Image panel */
+main .teaser.spotlight > div > div:has(picture) {
+  line-height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+main .teaser.spotlight picture,
+main .teaser.spotlight img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (width >= 900px) {
+  main .teaser.spotlight > div {
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-m);
+  }
+
+  main .teaser.spotlight > div > div:not(:has(picture)) {
+    padding: var(--space-2xl, 48px) var(--space-xl);
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
 /* Login teaser variant: image backdrop + overlapping teaser card */
 main .section.login-teaser-image {
     position: relative;
