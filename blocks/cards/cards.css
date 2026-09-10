@@ -1,4 +1,8 @@
-/* Default cards */
+/* ==========================================================================
+   Default cards — Ford image-overlay tiles
+   Dark photo tiles with the title + CTAs overlaid at the bottom, matching
+   ford.com vehicle-lineup cards. Reuses global spacing/motion tokens.
+   ========================================================================== */
 
 .cards > ul {
   list-style: none;
@@ -7,34 +11,30 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-l);
-  max-width: 340px;
-  margin-inline: auto;
 }
 
 .cards > ul > li {
-  border: 1px solid light-dark(var(--color-gray-200), rgb(245 242 237 / 10%));
-  background: light-dark(var(--color-light), var(--color-card-dark));
+  position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px light-dark(rgb(0 0 0 / 5%), rgb(0 0 0 / 40%)),
-              0 1px 2px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  background: var(--color-ink);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  transition: transform 0.35s var(--ease-out-smooth), box-shadow 0.35s ease;
 }
 
 .cards > ul > li:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 48px light-dark(rgb(161 79 43 / 18%), rgb(197 160 89 / 18%));
-  border-color: light-dark(var(--color-gold), rgb(197 160 89 / 45%));
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift-m);
 }
 
-/* Article wrapper — layout-invisible so the card link remains the direct flex child */
+/* Article wrapper — layout-invisible so the tile contents stack directly */
 .cards > ul > li > article {
   display: contents;
 }
 
-/* Card link */
+/* Card link (classic linked-image pattern) fills the tile */
 .cards .cards-card-link {
   display: flex;
   flex-direction: column;
@@ -45,58 +45,252 @@
   cursor: pointer;
 }
 
-/* Image */
+/* Image fills the tile; body is overlaid on top.
+   Portrait 3:4 to match the source nameplate card (e.g. 432×576). */
 .cards .cards-card-image {
   line-height: 0;
-  flex-shrink: 0;
   overflow: hidden;
+  aspect-ratio: 3 / 4;
 }
 
 .cards .cards-card-image img {
   display: block;
-  height: auto;
-  max-width: 100%;
-  margin-inline: auto;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.55s var(--ease-out-expo);
 }
 
 .cards > ul > li:hover .cards-card-image img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-/* Body */
-.cards .cards-card-body {
-  padding: var(--space-m);
-  flex-grow: 1;
+/* Body overlays the image with a legibility scrim.
+   Row-wrap so the title takes a full line and the two CTAs sit inline below.
+   The scrim fills the whole tile and darkens further on hover. */
+.cards .cards-card-overlay .cards-card-body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: flex-end;
+  gap: var(--space-s) 0;
+  padding: var(--space-l);
+  background: linear-gradient(to top, rgb(0 0 0 / 78%) 0%, rgb(0 0 0 / 35%) 45%, transparent 75%);
+  color: var(--color-light);
+  transition: background 0.4s ease;
+}
+
+/* Hover description: collapsed by default, revealed on hover/focus (states below) */
+.cards .cards-card-overlay .cards-card-desc {
+  flex-basis: 100%;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  color: var(--color-light);
+  transition: max-height 0.45s var(--ease-out-expo), opacity 0.35s ease, margin 0.45s var(--ease-out-expo);
 }
 
 .cards .cards-card-body :is(h2, h3, h4) {
-  margin-top: 0;
-  line-height: 1.2;
+  margin: 0;
+  line-height: 1.15;
+  font-family: var(--font-family);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-.cards .cards-card-body p {
-  color: light-dark(var(--color-gray-700), var(--color-muted));
+.cards .cards-card-overlay .cards-card-body :is(h2, h3, h4) {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  gap: var(--space-s);
+  color: var(--color-light);
+  font-size: var(--heading-font-size-m);
+}
+
+/* Up-chevron affordance next to the model name; flips to a down-chevron on
+   hover/focus (as on the source) */
+.cards .cards-card-overlay .cards-card-body :is(h2, h3, h4)::after {
+  content: '';
+  width: 0.45em;
+  height: 0.45em;
+  border-right: 2px solid currentcolor;
+  border-bottom: 2px solid currentcolor;
+  transform: translateY(0.1em) rotate(-135deg);
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+/* CTA row: both actions sit inline on a single row beneath the title */
+.cards .cards-card-overlay .cards-card-body .button-container {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+.cards .cards-card-overlay .cards-card-body .button-container + .button-container {
+  margin-inline-start: var(--space-l);
+}
+
+/* --- CTA rules: lower-specificity (feature card) first, then overlay --- */
+
+/* Fathom feature-card CTA — dark outline pill */
+.cards .cards-card-feature .cards-card-body a.button:any-link {
+  margin: 0;
+  padding: 9px 24px;
+  border: 1px solid var(--color-ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.cards .cards-card-feature .cards-card-body a.button:any-link:hover,
+.cards .cards-card-feature .cards-card-body a.button:any-link:focus-visible {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-ford-coral);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Primary CTA — white outline pill (Build & Price), title-case.
+   The first CTA is the pill; any following CTA (below) is reset to plain text. */
+.cards .cards-card-overlay .cards-card-body .button-container a.button:any-link {
+  margin: 0;
+  padding: 9px 22px;
+  border: 1px solid var(--color-light);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-light);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Secondary CTA — plain white text link (any CTA after the first) */
+.cards .cards-card-overlay .cards-card-body .button-container ~ .button-container a.button:any-link {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  text-decoration: none;
+}
+
+.cards .cards-card-overlay .cards-card-body .button-container ~ .button-container a.button:any-link::after {
+  content: none;
+}
+
+.cards .cards-card-overlay .cards-card-body .button-container a.button:any-link:hover,
+.cards .cards-card-overlay .cards-card-body .button-container a.button:any-link:focus-visible {
+  background: var(--color-light);
+  border-color: var(--color-light);
+  color: var(--color-ink);
+  transform: none;
+  box-shadow: none;
+}
+
+.cards .cards-card-overlay .cards-card-body .button-container ~ .button-container a.button:any-link:hover,
+.cards .cards-card-overlay .cards-card-body .button-container ~ .button-container a.button:any-link:focus-visible {
+  background: none;
+  color: var(--color-light);
+  text-decoration: underline;
+  text-decoration-color: var(--color-light);
+}
+
+/* Text-only cards keep readable body copy below (fallback for non-overlay use) */
+.cards .cards-card-text-only .cards-card-body {
+  padding: var(--space-l);
+  flex-grow: 1;
+}
+
+.cards .cards-card-text-only .cards-card-body p {
   font-size: var(--body-font-size-s);
   line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   Fathom-style feature card: solid coral promo cell among the photo tiles.
+   Centered "Introducing" eyebrow at top; Preorder + title + CTA bottom-left;
+   circular play affordance bottom-right — matching the source promo tile.
+   -------------------------------------------------------------------------- */
+.cards > ul > li.cards-card-feature {
+  background: var(--color-ford-coral);
+  color: var(--color-ink);
+}
+
+.cards .cards-card-feature .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-s);
+  padding: var(--space-l);
+  min-height: 100%;
+}
+
+/* Centered eyebrow pinned to the top */
+.cards .cards-card-feature .cards-card-eyebrow {
+  align-self: center;
+  margin: var(--space-s) 0 auto;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.cards .cards-card-feature .cards-card-body :is(h2, h3, h4) {
+  color: var(--color-ink);
+  font-size: var(--heading-font-size-m);
+}
+
+.cards .cards-card-feature .cards-card-body p {
+  margin: 0;
+  color: var(--color-ink);
+}
+
+/* Circular play affordance in the bottom-right corner */
+.cards .cards-card-feature .cards-card-play {
+  position: absolute;
+  right: var(--space-l);
+  bottom: var(--space-l);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-ink) 55%, var(--color-ford-coral));
+}
+
+.cards .cards-card-feature .cards-card-play::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent var(--color-parchment);
+  transform: translate(-50%, -50%);
 }
 
 /* Tablet: 2 columns */
 @media (width >= 600px) {
   .cards > ul {
     grid-template-columns: repeat(2, 1fr);
-    max-width: none;
   }
 }
 
-/* Desktop */
+/* Desktop: 3 columns */
 @media (width >= 900px) {
   .cards > ul {
-    grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  }
-
-  .cards .cards-card-body {
-    padding: var(--space-l);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -254,3 +448,199 @@
     max-height: 300px;
   }
 }
+
+/* ==========================================================================
+   Overlay hover states — kept last so specificity stays non-descending.
+   On hover/focus the scrim darkens and the description expands into view.
+   ========================================================================== */
+.cards .cards-card-overlay:hover .cards-card-body,
+.cards .cards-card-overlay:focus-within .cards-card-body {
+  background: linear-gradient(to top, rgb(0 0 0 / 82%) 0%, rgb(0 0 0 / 68%) 55%, rgb(0 0 0 / 45%) 100%);
+}
+
+.cards .cards-card-overlay:hover .cards-card-desc,
+.cards .cards-card-overlay:focus-within .cards-card-desc {
+  max-height: 8em;
+  margin: var(--space-xs) 0 var(--space-s);
+  opacity: 1;
+}
+
+/* Chevron flips from up to down when the card expands */
+.cards .cards-card-overlay:hover .cards-card-body :is(h2, h3, h4)::after,
+.cards .cards-card-overlay:focus-within .cards-card-body :is(h2, h3, h4)::after {
+  transform: translateY(-0.1em) rotate(45deg);
+}
+
+/* ==========================================================================
+   Social variant — Ford "Featured Stories" cards
+   Image on top, bold title, then a meta footer: author (avatar + name) on the
+   left; date + category pill on the right. Light card on the page background.
+   Variant intentionally overrides the base card rules defined earlier.
+   ========================================================================== */
+/* stylelint-disable no-descending-specificity */
+
+/* Dynamic grid: columns auto-fit to the card count so any number of cards
+   fills the row width (2 cards → 50/50, 3 → thirds, etc.) and wraps as needed. */
+.cards.social > ul {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-l);
+}
+
+/* Shared social card visuals (grid + carousel variants) */
+.cards:is(.social, .social-carousel) li {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid light-dark(#e5e5e5, rgb(255 255 255 / 12%));
+  border-radius: 8px;
+  overflow: hidden;
+  background: light-dark(var(--color-light), var(--color-card-dark));
+  box-shadow: none;
+}
+
+.cards:is(.social, .social-carousel) li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift-m);
+}
+
+.cards:is(.social, .social-carousel) .cards-card-image {
+  aspect-ratio: 4 / 3;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards:is(.social, .social-carousel) .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.cards:is(.social, .social-carousel) li:hover .cards-card-image img {
+  transform: scale(1.04);
+}
+
+.cards:is(.social, .social-carousel) .cards-card-body {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-m);
+  padding: var(--space-l);
+  background: none;
+  color: inherit;
+}
+
+.cards:is(.social, .social-carousel) .cards-card-body :is(h2, h3, h4) {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: var(--heading-font-size-s);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: light-dark(var(--color-ink), var(--color-parchment));
+}
+
+.cards:is(.social, .social-carousel) .cards-card-body :is(h2, h3, h4)::after {
+  content: none;
+}
+
+/* Category — blue outline pill, left-aligned at the bottom of the card */
+.cards:is(.social, .social-carousel) .cards-card-category {
+  align-self: flex-start;
+  margin: auto 0 0;
+  padding: 5px 16px;
+  border: 1px solid var(--color-ford-blue-bright);
+  border-radius: 400px;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ford-blue-bright);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   social-carousel — horizontal scroller with prev/next arrows.
+   Layout: [prev arrow] [scroll viewport] [next arrow].
+   -------------------------------------------------------------------------- */
+.cards.social-carousel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.cards-carousel-viewport {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cards-carousel-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.cards.social-carousel .cards-carousel-viewport > ul {
+  display: flex;
+  grid-template-columns: none;
+  gap: var(--space-l);
+  padding: var(--space-xs);
+}
+
+.cards.social-carousel li {
+  flex: 0 0 auto;
+  width: 280px;
+  scroll-snap-align: start;
+}
+
+/* Circular prev/next arrows */
+.cards-carousel-arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 70%);
+  color: var(--color-light);
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.cards-carousel-arrow::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+}
+
+.cards-carousel-arrow-prev::before {
+  transform: translateX(2px) rotate(-135deg);
+}
+
+.cards-carousel-arrow-next::before {
+  transform: translateX(-2px) rotate(45deg);
+}
+
+.cards-carousel-arrow:hover:not(:disabled) {
+  background: var(--color-ford-blue-bright);
+}
+
+.cards-carousel-arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (width >= 900px) {
+  .cards.social-carousel li {
+    width: 320px;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */

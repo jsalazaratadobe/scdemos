@@ -1,0 +1,204 @@
+{
+  "url": "https://www.fromtheroad.ford.com/us/en/home?gnav=footer-aboutford",
+  "source": "bd",
+  "detection": {
+    "isError": false,
+    "isBotProtection": false
+  },
+  "timestamp": "2026-09-09T23:42:58.658Z",
+  "paths": {
+    "documentPath": "/us/en/home",
+    "htmlFilePath": "/us/en/home.plain.html",
+    "mdFilePath": "/us/en/home.md",
+    "dirPath": "/us/en",
+    "filename": "home"
+  },
+  "screenshot": ".migration/scrape-heritage/screenshot.png",
+  "html": {
+    "filePath": ".migration/scrape-heritage/cleaned.html",
+    "size": 437792
+  },
+  "rawHtml": {
+    "filePath": "/backups/jsalazaratadobe/scdemos/repo/tools/importer/bd-snapshots/www.fromtheroad.ford.com/us/en/home.html",
+    "size": 319959
+  },
+  "metadata": {
+    "title": "Ford Official Site | Vehicles, History & Community",
+    "template": "home-page-template",
+    "viewport": "width=device-width, initial-scale=1",
+    "theme-color": "#000000",
+    "description": "The official home for stories from Ford. Get the latest news, in-depth vehicle features, media site information, and meet the people and ideas driving our company forward.",
+    "cq:pagemodel_root_url": "/content/fordmediasite/us/en/home.model.json",
+    "cq:errorpages": "/content/fordmediasite/us/en/error-pages",
+    "google-site-verification": "6vtlTORib99ciHQRzS92StHs7V8IDlJ1Wav66LL8tcg",
+    "twitter:url": "https://www.fromtheroad.ford.com/us/en/home",
+    "twitter:site": "@ford",
+    "twitter:description": "The official home for stories from Ford. Get the latest news, in-depth vehicle features, media site information, and meet the people and ideas driving our company forward.",
+    "twitter:image": "https://www.fromtheroad.ford.com/dam/fordmediasite/ford-logo.png",
+    "twitter:image:alt": "Ford Logo",
+    "twitter:card": "summary_large_image",
+    "og:url": "https://www.fromtheroad.ford.com/us/en/home",
+    "og:type": "website",
+    "og:title": "Ford From the Road",
+    "og:description": "The official home for stories from Ford. Get the latest news, in-depth vehicle features, media site information, and meet the people and ideas driving our company forward.",
+    "og:image": "https://www.fromtheroad.ford.com/dam/fordmediasite/ford-logo.png",
+    "og:image:alt": "Ford Logo",
+    "canonical": "https://www.fromtheroad.ford.com/us/en/home",
+    "jsonLd": {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.fromtheroad.ford.com/#website",
+      "url": "https://www.fromtheroad.ford.com/us/en/home?gnav=footer-aboutford",
+      "name": "Ford From the Road",
+      "description": "From the Road is Ford's lifestyle storytelling platform exploring vehicles, culture, community, and real-world experiences.",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.ford.com/#organization",
+        "name": "Ford Motor Company",
+        "url": "https://www.ford.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.fromtheroad.ford.com/content/dam/fordmediasite/sample/site/logos/fromtheroad_logo.svg"
+        }
+      },
+      "knowsAbout": [
+        "Ford vehicles",
+        "Automotive lifestyle",
+        "Road trips",
+        "Electric vehicles",
+        "Motorsports",
+        "Adventure travel",
+        "Vehicle ownership stories"
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.fromtheroad.ford.com/us/en/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "hasPart": {
+        "@type": "WebPage",
+        "@id": "https://www.fromtheroad.ford.com/us/en/home?gnav=footer-aboutford#webpage",
+        "url": "https://www.fromtheroad.ford.com/us/en/home?gnav=footer-aboutford",
+        "name": "From the Road – Ford Stories Homepage",
+        "description": "The official home for stories from Ford. Get the latest news, in-depth vehicle features, media site information, and meet the people and ideas driving our company forward.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://www.fromtheroad.ford.com/#website"
+        },
+        "about": [
+          {
+            "@type": "Thing",
+            "name": "Ford Brand Storytelling"
+          },
+          {
+            "@type": "Thing",
+            "name": "Automotive Culture"
+          },
+          {
+            "@type": "Thing",
+            "name": "Mobility and Adventure"
+          }
+        ],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": [
+            "Car enthusiasts",
+            "Ford owners",
+            "Adventure travelers",
+            "EV-curious consumers"
+          ]
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "Featured Ford Stories",
+          "itemListOrder": "https://schema.org/ItemListOrderDescending",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Ford lifestyle and feature stories",
+                "url": "https://www.fromtheroad.ford.com/us/en/home?gnav=footer-aboutford"
+              }
+            }
+          ]
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            "meta[name=\"description\"]",
+            "h1",
+            ".homepage-intro"
+          ]
+        }
+      }
+    }
+  },
+  "images": {
+    "count": 53,
+    "mapping": {
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/Ford%20Logo%20Circle.png": "./images/4fa1ac5958d54b3f2743d07f7e4dfc03.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/levitt-S12-03-26-021398.jpg": "./images/7242e2ab3b8d95bd39df866996cd5bda.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/Jen_Brace.jpeg": "./images/a79864717405d764e2a3316c7d9645a6.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/Phil-O-Connor-Head-Shot.jpg": "./images/0e7233f7edbd4939f61a643bba16ba2e.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/FOCUS.png": "./images/902f1e635d0a4216c773fd184ad86d8d.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/Fast%20Company.jpeg": "./images/c4c838c3045613003c8573dbabeb0a8a.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/AJ_Baime.jpg": "./images/0e6ec943bcaf95de06121f6c087cd5e8.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/Sharyn_Ghacham.jpeg": "./images/3422044a69fcf0913ba5d454044a5ffa.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/authors/author-images/cbs-news.png": "./images/739622914b3328a22b8fa98625795117.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/sample/site/logos/fromtheroad_logo.svg": "./images/51a7552abee521786e174fdae2f84d48.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/icons-and-logos/article-default-image.jpg": "./images/3cbb0eb76b11781f1ecd1155b131eaca.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/banners/Updated-26-Ford-FTR-HomeBanner-R1-2048x288_v1.jpg": "./images/c938f69a6ee0d09ce8c3e9968de64dc9.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2026/Thumbnail_global-food-drive.jpg": "./images/292392f84f4951bbe13c860f32f28a15.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/2026-woodward-dream-cruise/2026_Woodward_Dream_Cruise_02.jpg": "./images/8edebf0e022db59daaa29b6e8b5de77e.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/another-year-of-ford%E2%80%99s-commitment-to-america/2025%20Ford%20Expedition_Assembly%2005.jpg": "./images/8be3fce3c7da4369d3b2ec20e6a53a11.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/this-week-in-ford-times-dolly-built-a-dream,-and-called-it-home-/this_week_ford_times_mobile_hero.jpg": "./images/4ffce5b54db20a5cb80acb9edde36449.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2026/lets-get-to-work-mobile.jpg": "./images/7fdc6c2fa939219aa58f0750d196cdf5.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-cavalry-of-the-track--trust,-grit,-and-the-ford-f-150-raptor-/imsa_amr_rapid_response_8.jpg": "./images/696022f705c59f7131e163aa14953588.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/will-this-road-trip-save-my-marriage-/MarriageSavingRoadTrip_Hero_16x9.jpg": "./images/3fc634d9ea7d5793546aa50c2fa25141.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2026/Ford_GCM_NMDP_4%20copy.jpg": "./images/333e6b6f282ae717ce10be7df2b71a09.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/global-caring-month--turning-passion-into-progress-across-the-globe-/global_caring_month_2026_2.jpg": "./images/80342e5ac1e3eb56ee8a64b76f56f1b4.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2025/social-thumbnails/1962_ford_cougar_concept_car.jpg": "./images/4928ef7a7c0c400cc573c2c5ea9da7b0.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-universal-ev-production-system-is-coming-to-life-at-lap/26-Ford-LAPScale_FM_3x4-CONSYS.jpg": "./images/4cdb798ed7ddb308f4cc83a144bdf2ee.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-universal-ev-production-system-is-coming-to-life-at-lap/26-Ford-LAPScale_FM_3x4-SQ.jpg": "./images/059f2608958021346a06c476ee3fb8cf.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-universal-ev-production-system-is-coming-to-life-at-lap/26-Ford-LAPScale_FM_3x4-Truck.jpg": "./images/315dd7aff1d221730ea52500a32c3b28.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/articles/2026/this-week-in-ford-times--the-whimsy-of-early-mapmaking/twift_map_desktop.png": "./images/be2014cf29b096347ffa73978dbbf908.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-universal-ev-production-system-is-coming-to-life-at-lap/26-Ford-LAPScale_FM_3x4-Wire.jpg": "./images/19c7ea1d84fc846296daaa4cd0d4be75.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/sample/site/logos/Ford-logo-white.svg": "./images/e691bc5606a2940a091029e22a2a7999.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/banners/Updated-26-Ford-FTR-HomeBanner-R1-2048x288_v1.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/330599972a6a32f0e56b0f86a63b5dd4.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/icons-and-logos/article-default-image.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/897f7aa587c3867c08d3cf0949c2857f.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2026/Ford_GCM_NMDP_4%20copy.jpg/jcr:content/renditions/cqdam.web.768.webp": "./images/c6656979f5fba5c70cbfd77b1153a0ca.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/this-week-in-ford-times-dolly-built-a-dream,-and-called-it-home-/this_week_ford_times_mobile_hero.jpg/jcr:content/renditions/cqdam.web.768.webp": "./images/3113528e0394c8593de771ef4e346de3.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2026/lets-get-to-work-mobile.jpg/jcr:content/renditions/cqdam.web.768.webp": "./images/d180118d06bd04945d7b4624f9b8ed10.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/will-this-road-trip-save-my-marriage-/MarriageSavingRoadTrip_Hero_16x9.jpg/jcr:content/renditions/cqdam.web.768.webp": "./images/b57b71b9105149c202a081a18c9278dc.png",
+      "https://cdn.cookielaw.org/logos/1d20b685-0942-4b4d-a0af-b799c97f5cf6/a5395623-e427-4e08-8233-d9f92d82abc7/4e9a489c-ad01-4d4b-9eb6-7a8d839d1837/1280px-HD_transparent_picture.png": "./images/4a482463fc55cb82da891abdb7c6f556.png",
+      "https://flaticons.net/icon.php?slug_category=mobile-application&slug_icon=close": "./images/3627f8fce13a212d91f329b02a014c9d.png",
+      "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg": "./images/a9584a367ebcccfac48987ce1fec5eae.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-universal-ev-production-system-is-coming-to-life-at-lap/26-Ford-LAPScale_FM_3x4-Truck.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/00d6c02864885693b50903482c9d2a02.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-cavalry-of-the-track--trust,-grit,-and-the-ford-f-150-raptor-/imsa_amr_rapid_response_5.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/d92bc31f436fe6d9dcf4f801bc039813.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/global-caring-month--turning-passion-into-progress-across-the-globe-/global_caring_month_2026_2.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/3dc26933708e280f7d5acf0c4281d634.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-universal-ev-production-system-is-coming-to-life-at-lap/26-Ford-LAPScale_FM_3x4-Wire.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/40dcaa2de668f6d1c557d7778122a69c.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2026/Thumbnail_global-food-drive.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/776c5ed2523a114519cd41df7ea676e1.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-universal-ev-production-system-is-coming-to-life-at-lap/26-Ford-LAPScale_FM_3x4-SQ.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/01c25964c1b25abc8adc4478ab191dc2.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/the-universal-ev-production-system-is-coming-to-life-at-lap/26-Ford-LAPScale_FM_3x4-CONSYS.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/b2cd80605e484bf6e85cbfb046c0dc92.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/articles/2026/this-week-in-ford-times--the-whimsy-of-early-mapmaking/twift_map_desktop.png/jcr:content/renditions/cqdam.web.2400.webp": "./images/755ed222556a8197153021ee32772b6f.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2025/social-thumbnails/1962_ford_cougar_concept_car.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/089633d84ed67f724471aa9210e3b10d.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/2026/2026_QCF_houston_farms_chaz_daughtry_01.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/fdd6c90cd91f88e3fc2b32db1fabfecb.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/i'm-ford's-vp-of-vehicle-hardware-engineering,-and-for-me,-quality-is-personal/Charles_Poon_4.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/8596a98e2e53c1c42203482a35e1660f.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/sample/site/logos/Ford-logo.svg": "./images/82277b993515bbe4b97138418e1dc08f.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/social-media/banners/Updated-26-Ford-FTR-HomeBanner-R1-2048x288_v1.jpg.jpg/jcr:content/renditions/cqdam.web.640.webp": "./images/71810bfcfc71bf66d6bbbfbf638525cd.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/profiles/images/James-D-Farley-Jr.jpg": "./images/060995c1f863f7d365b49b1a2eef3402.jpg",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/let's-get-to-work--ford-partners-with-aaron-judge-/Aaron_Judge.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/aaaad069f2c8136f8be0a2e2915bdb0c.png",
+      "https://www.fromtheroad.ford.com/content/dam/fordmediasite/us/en/library/2026/four-years-ago,-a-stranger-changed-my-son%E2%80%99s-life--last-week,-we-paid-it-forward-together-/Ford_GCM_NMDP_4.jpg/jcr:content/renditions/cqdam.web.2400.webp": "./images/d229c30a3726e5f59ecd08a757ebba0d.png"
+    },
+    "stats": {
+      "total": 54,
+      "converted": 24,
+      "skipped": 29,
+      "failed": 0,
+      "tooLarge": 0,
+      "limitReached": 0
+    }
+  }
+}

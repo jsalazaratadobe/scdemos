@@ -50,14 +50,14 @@ header {
 }
 
 header .nav-wrapper {
-  background-color: light-dark(#faf8f5, var(--color-obsidian));
+  background-color: light-dark(#fff, var(--color-obsidian));
   width: 100%;
   z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  border-bottom: var(--border-heritage);
+  border-bottom: 1px solid light-dark(#e5e5e5, rgb(255 255 255 / 12%));
   box-shadow: none;
 }
 
@@ -205,8 +205,8 @@ header nav .nav-brand a:any-link:focus-visible {
 }
 
 header nav .nav-brand .icon.icon-logo {
-    position: relative;
-    top: 5px;
+    display: inline-flex;
+    align-items: center;
   }
 
 header nav .nav-brand :is(img, svg) {
@@ -531,18 +531,18 @@ header nav .nav-sections button.button:focus-visible {
   box-shadow: none;
 }
 
-/* CTA button in header tools */
+/* CTA button in header tools — Ford blue pill */
 header nav .nav-tools a.button:any-link:not(.nav-tool) {
-  border: 1.5px solid var(--color-rust);
-  border-radius: 4px;
-  background: transparent;
-  color: var(--color-rust);
-  padding: 12px 24px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: all 0.3s;
+  border: 1px solid var(--color-ford-blue);
+  border-radius: 400px;
+  background: var(--color-ford-blue);
+  color: var(--color-light);
+  padding: 10px 22px;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 header nav .nav-tools a.button.nav-auth-link:any-link {
@@ -579,7 +579,8 @@ header nav .nav-sections .default-content-wrapper > ul > li.nav-auth-mobile-item
 }
 
 header nav .nav-tools a.button:any-link:not(.nav-tool):hover {
-  background: var(--color-rust);
+  background: var(--color-ford-blue-hover);
+  border-color: var(--color-ford-blue-hover);
   color: var(--color-light);
   transform: none;
   box-shadow: none;
@@ -897,6 +898,7 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > p {
+    position: relative;
     margin: 0;
     display: inline-flex;
     align-items: center;
@@ -914,56 +916,34 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     transition: color 0.18s ease, background-color 0.18s ease;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > p > a:hover,
-  header nav .nav-sections .default-content-wrapper > ul > li > p > a:focus-visible {
-    color: var(--nav-hover-color);
-    background-color: var(--nav-bg-link-hover);
-  }
-
   header nav .nav-sections .default-content-wrapper > ul > li > p > a:focus-visible {
     outline: 2px solid var(--nav-focus-color);
     outline-offset: 2px;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li:not(.nav-drop) a:hover,
-  header nav .nav-sections .default-content-wrapper > ul > li:not(.nav-drop) a:focus-visible {
-    color: var(--nav-hover-color);
-    text-decoration: underline;
-    text-underline-offset: 0.35em;
-    text-decoration-thickness: 2px;
+  /* Ford-style hover: blue underline bar under the nav item text, no chevron */
+  header nav .nav-sections .default-content-wrapper > ul > li > p::after {
+    content: '';
+    position: absolute;
+    left: var(--space-s);
+    right: var(--space-s);
+    bottom: 0;
+    height: 3px;
+    background: var(--color-ford-blue-bright);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li:hover > p::after,
+  header nav .nav-sections .default-content-wrapper > ul > li:focus-within > p::after,
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > p::after {
+    transform: scaleX(1);
   }
 
   header nav .nav-sections .nav-drop {
     padding-right: var(--nav-item-padding);
     cursor: pointer;
-  }
-
-  header nav .nav-sections .nav-drop:focus-within > p > a,
-  header nav .nav-sections .nav-drop:hover > p > a {
-    background-color: var(--nav-bg-link-hover);
-    color: var(--nav-hover-color);
-  }
-
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: var(--space-xs);
-    transform: translateY(-50%) rotate(135deg);
-    width: 5px;
-    height: 5px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-    transition: transform 0.2s ease;
-    opacity: 0.7;
-  }
-
-  header nav .nav-sections .nav-drop:hover::after,
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    transform: translateY(-50%) rotate(-45deg);
-    opacity: 1;
   }
 
   /* regular dropdown – desktop */
@@ -1058,8 +1038,8 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     right: 0;
     top: var(--mega-top, var(--nav-height, 64px));
     padding: var(--space-xl) var(--space-xl);
-    border-bottom: var(--border-heritage);
-    background-color: light-dark(#faf8f5, var(--color-obsidian));
+    border-bottom: 1px solid light-dark(#e5e5e5, rgb(255 255 255 / 12%));
+    background-color: light-dark(#fff, var(--color-obsidian));
     color: var(--text-color);
     box-shadow: var(--header-drop-shadow);
     z-index: 999;
@@ -1292,15 +1272,15 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1.5px solid var(--color-rust);
-    border-radius: 4px;
-    background: transparent;
-    color: var(--color-rust);
+    border: 1px solid var(--color-ford-blue);
+    border-radius: 400px;
+    background: var(--color-ford-blue);
+    color: var(--color-light);
     padding: 12px 24px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    font-size: var(--body-font-size-s);
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
     line-height: 1;
     min-width: 120px;
     text-decoration: none;
@@ -1308,7 +1288,8 @@ header nav .nav-tools .nav-language-menu a:focus-visible {
 
   header nav .nav-sections .default-content-wrapper > ul > li.nav-auth-mobile-item > p > a.button.nav-auth-mobile:any-link:hover,
   header nav .nav-sections .default-content-wrapper > ul > li.nav-auth-mobile-item > p > a.button.nav-auth-mobile:any-link:focus-visible {
-    background: var(--color-rust);
+    background: var(--color-ford-blue-hover);
+    border-color: var(--color-ford-blue-hover);
     color: var(--color-light);
     transform: none;
     box-shadow: none;

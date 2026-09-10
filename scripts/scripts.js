@@ -167,12 +167,42 @@ async function inlineColorIcons(scope) {
   });
 }
 
+/**
+ * Apply authored "Section Metadata" blocks as section styles/data attributes.
+ * The core aem.js decorateSections() doesn't consume section-metadata, so this
+ * runs after it: for each `.section-metadata`, the `style` value(s) become
+ * classes on the parent `.section` and any other keys become data-* attributes.
+ * @param {Element} main
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll('.section > div > .section-metadata').forEach((sectionMeta) => {
+    const section = sectionMeta.closest('.section');
+    if (!section) return;
+    const meta = readBlockConfig(sectionMeta);
+    Object.keys(meta).forEach((key) => {
+      if (key === 'style') {
+        meta.style.split(',').map((s) => toClassName(s.trim())).filter(Boolean)
+          .forEach((s) => section.classList.add(s));
+      } else {
+        section.dataset[toCamelCase(key)] = meta[key];
+      }
+    });
+    // Remove the wrapper if the metadata was its only child, then the block.
+    const wrapper = sectionMeta.parentElement;
+    sectionMeta.remove();
+    if (wrapper && wrapper.classList.contains('default-content-wrapper') && !wrapper.childElementCount) {
+      wrapper.remove();
+    }
+  });
+}
+
 export function decorateMain(main) {
   decorateButtons(main);
   decorateIcons(main);
   inlineColorIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   if (document.contains(main)) initPageSchemas();
 }

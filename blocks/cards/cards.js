@@ -110,6 +110,109 @@ function decorateBento(block) {
 }
 
 /**
+ * Build one social card <li> from an authored row.
+ * The cell holds a cover image, a title heading, and a trailing category.
+ * Rendered as: image on top, title, then a left-aligned category pill.
+ * (Any author avatar/name and date rows in the source content are omitted.)
+ */
+function buildSocialCard(row) {
+  const li = createTag('li');
+  // Flatten the single wrapper cell into the li.
+  const cell = row.firstElementChild || row;
+  while (cell.firstChild) li.append(cell.firstChild);
+
+  // The cover is the image-only picture; an avatar picture (if any) sits in a
+  // paragraph that also has text — that whole author line is dropped.
+  const pictures = [...li.querySelectorAll('picture')];
+  const textOf = (pic) => (pic.closest('p')?.textContent || '').trim();
+  const avatarPic = pictures.find((pic) => textOf(pic).length > 0);
+  const coverPic = pictures.find((pic) => pic !== avatarPic);
+
+  const imageDiv = createTag('div', { class: 'cards-card-image' });
+  if (coverPic) {
+    const link = coverPic.closest('a');
+    imageDiv.append(coverPic);
+    if (link && !link.textContent.trim() && !link.children.length) link.remove();
+  }
+
+  const body = createTag('div', { class: 'cards-card-body' });
+  const heading = li.querySelector('h1, h2, h3, h4, h5, h6');
+  if (heading) body.append(heading);
+
+  // Category = last plain text paragraph (no image). Author line + date omitted.
+  const textParagraphs = [...li.querySelectorAll(':scope > p')].filter((p) => !p.querySelector('picture'));
+  const categoryP = textParagraphs[textParagraphs.length - 1];
+  if (categoryP) {
+    categoryP.classList.add('cards-card-category');
+    body.append(categoryP);
+  }
+
+  li.replaceChildren(imageDiv, body);
+  return li;
+}
+
+/** Optimize cover images within a social list (avatars are already dropped). */
+function optimizeSocialCovers(scope) {
+  scope.querySelectorAll('.cards-card-image picture > img').forEach((img) => {
+    const picture = img.closest('picture');
+    if (picture) {
+      picture.replaceWith(createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }]));
+    }
+  });
+}
+
+/**
+ * Decorate "cards social" variant — Ford "Featured Stories" cards (grid).
+ */
+function decorateSocial(block) {
+  const ul = createTag('ul');
+  [...block.children].forEach((row) => ul.append(buildSocialCard(row)));
+  optimizeSocialCovers(ul);
+  block.replaceChildren(ul);
+}
+
+/**
+ * Decorate "cards social-carousel" variant — horizontally scrolling social
+ * cards with prev/next arrows (Ford "Latest Tech Stories" carousel).
+ */
+function decorateSocialCarousel(block) {
+  const ul = createTag('ul');
+  [...block.children].forEach((row) => ul.append(buildSocialCard(row)));
+  optimizeSocialCovers(ul);
+
+  const viewport = createTag('div', { class: 'cards-carousel-viewport' });
+  viewport.append(ul);
+
+  const makeArrow = (dir) => createTag('button', {
+    type: 'button',
+    class: `cards-carousel-arrow cards-carousel-arrow-${dir}`,
+    'aria-label': dir === 'prev' ? 'Previous stories' : 'Next stories',
+  });
+  const prev = makeArrow('prev');
+  const next = makeArrow('next');
+
+  const scrollByCards = (sign) => {
+    const first = ul.querySelector('li');
+    const step = first ? first.getBoundingClientRect().width + 24 : viewport.clientWidth * 0.8;
+    viewport.scrollBy({ left: sign * step, behavior: 'smooth' });
+  };
+  prev.addEventListener('click', () => scrollByCards(-1));
+  next.addEventListener('click', () => scrollByCards(1));
+
+  // Toggle arrow availability at the scroll extremes.
+  const updateArrows = () => {
+    const max = viewport.scrollWidth - viewport.clientWidth - 1;
+    prev.disabled = viewport.scrollLeft <= 0;
+    next.disabled = viewport.scrollLeft >= max;
+  };
+  viewport.addEventListener('scroll', updateArrows, { passive: true });
+  window.addEventListener('resize', updateArrows);
+  requestAnimationFrame(updateArrows);
+
+  block.replaceChildren(prev, viewport, next);
+}
+
+/**
  * Decorate regular cards (authored rows with image + body).
  */
 function decorateDefault(block) {
@@ -139,7 +242,10 @@ function decorateDefault(block) {
       });
     }
 
-    const linkEl = li.querySelector('.cards-card-image a[href]') || li.querySelector('.cards-card-body a[href]');
+    // Whole-card link only for the classic "linked image" pattern. When CTAs
+    // live in the body (e.g. multiple buttons), keep them as-is so authors can
+    // have several actions per card.
+    const linkEl = li.querySelector('.cards-card-image a[href]');
     if (linkEl) {
       if (isUE) {
         // In UE: use a <div> wrapper so the authored <a> (with its href) is preserved
@@ -165,12 +271,41 @@ function decorateDefault(block) {
       }
     }
 
+    // Flag cards so styling can distinguish overlay tiles (title/CTAs over the
+    // image) from text-only promo cards (e.g. the Fathom feature card).
+    if (li.querySelector('.cards-card-image')) {
+      li.classList.add('cards-card-overlay');
+      // A plain paragraph (not a CTA button) is the hover description.
+      li.querySelectorAll('.cards-card-body > p:not(.button-container)').forEach((p) => {
+        p.classList.add('cards-card-desc');
+      });
+    } else {
+      li.classList.add('cards-card-text-only');
+    }
+
     const article = createTag('article');
     while (li.firstChild) article.append(li.firstChild);
     li.append(article);
 
     ul.append(li);
   });
+
+  // When image tiles and text-only cards share a grid, the text-only card is a
+  // promo/feature cell (e.g. Fathom among the vehicle tiles).
+  const textOnly = ul.querySelectorAll('li.cards-card-text-only');
+  if (textOnly.length && textOnly.length < ul.children.length) {
+    textOnly.forEach((li) => {
+      li.classList.add('cards-card-feature');
+      // The leading paragraph acts as a centered eyebrow (e.g. "Introducing").
+      const firstP = li.querySelector('.cards-card-body > p:not(.button-container)');
+      if (firstP) firstP.classList.add('cards-card-eyebrow');
+      // Decorative play affordance in the corner, mirroring the source promo.
+      const body = li.querySelector('.cards-card-body');
+      if (body && !body.querySelector('.cards-card-play')) {
+        body.append(createTag('span', { class: 'cards-card-play', 'aria-hidden': 'true' }));
+      }
+    });
+  }
 
   ul.querySelectorAll('picture > img').forEach((img) => {
     const picture = img.closest('picture');
@@ -187,6 +322,10 @@ export default async function decorate(block) {
     await decorateLinks(block);
   } else if (block.classList.contains('bento')) {
     decorateBento(block);
+  } else if (block.classList.contains('social-carousel')) {
+    decorateSocialCarousel(block);
+  } else if (block.classList.contains('social')) {
+    decorateSocial(block);
   } else {
     decorateDefault(block);
   }

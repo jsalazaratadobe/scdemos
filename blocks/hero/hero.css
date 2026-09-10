@@ -103,7 +103,7 @@
     animation: hero-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
   }
 
-  .hero h1 {
+  .hero :is(h1, h2, h3) {
     animation: hero-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
   }
 
@@ -124,7 +124,7 @@
 }
 
 /* Heading */
-.hero h1 {
+.hero :is(h1, h2, h3) {
   margin: 0;
   font-family: var(--font-family-serif);
   font-size: clamp(2rem, 8vw, 4.5rem);
@@ -133,7 +133,7 @@
   color: light-dark(var(--color-ink), var(--color-parchment));
 }
 
-.hero h1 em {
+.hero :is(h1, h2, h3) em {
   font-weight: 400;
   font-style: italic;
   background: linear-gradient(135deg, var(--color-rust) 0%, var(--color-gold) 100%);
@@ -141,8 +141,8 @@
   color: transparent;
 }
 
-.dark-scheme .hero h1 em,
-:root[data-theme='dark'] .hero h1 em {
+.dark-scheme .hero :is(h1, h2, h3) em,
+:root[data-theme='dark'] .hero :is(h1, h2, h3) em {
   background: linear-gradient(135deg, var(--color-rust-bright) 0%, var(--color-gold) 100%);
   background-clip: text;
   color: transparent;
@@ -209,7 +209,7 @@
     margin: 0 25%;
   }
 
-  .hero h1 {
+  .hero :is(h1, h2, h3) {
     font-size: clamp(3.5rem, 5vw, 6rem);
   }
 }
@@ -219,7 +219,7 @@
     padding: 100px 6vw;
   }
 
-  .hero h1 {
+  .hero :is(h1, h2, h3) {
     font-size: clamp(4rem, 5.5vw, 6.5rem);
   }
 }
@@ -259,13 +259,13 @@
   background-color: var(--color-rust);
 }
 
-.hero.rust h1,
+.hero.rust :is(h1, h2, h3),
 .hero.rust p:not(.button-container, .hero-tagline) {
   color: var(--color-parchment);
 }
 
 /* Variant heros: reset gradient text and use solid color */
-:root .hero.rust h1 em {
+:root .hero.rust :is(h1, h2, h3) em {
   background: none;
   background-clip: unset;
   color: var(--color-gold);
@@ -275,7 +275,7 @@
   background-color: var(--color-gold);
 }
 
-.hero.gold h1,
+.hero.gold :is(h1, h2, h3),
 .hero.gold p:not(.button-container, .hero-tagline) {
   color: var(--color-ink);
 }
@@ -284,13 +284,333 @@
   background-color: var(--color-ink);
 }
 
-.hero.ink h1,
+.hero.ink :is(h1, h2, h3),
 .hero.ink p:not(.button-container, .hero-tagline) {
   color: var(--color-parchment);
 }
 
-:root .hero.ink h1 em {
+:root .hero.ink :is(h1, h2, h3) em {
   background: none;
   background-clip: unset;
   color: var(--color-rust);
 }
+
+/* ==========================================================================
+   Heritage variant — Ford Heritage Vault promo (from the "Discover More" row)
+   Full-bleed image with the title + subtext overlaid bottom-left in white and
+   a blue pill CTA on the right. Rounded card, contained width.
+   ========================================================================== */
+main .hero.heritage {
+  max-width: var(--grid-container-width);
+  margin: var(--main-block-space) auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Heritage overrides intentionally follow the base hero rules. */
+/* stylelint-disable no-descending-specificity */
+
+/* Show the full image (not dimmed) with a bottom scrim for text legibility */
+.hero.heritage picture img {
+  max-height: 620px;
+  opacity: 1;
+}
+
+.hero.heritage > div:first-child::after {
+  height: 100%;
+  background: linear-gradient(to top, rgb(0 0 0 / 60%) 0%, rgb(0 0 0 / 15%) 45%, transparent 75%);
+  transition: opacity 0.4s ease;
+}
+
+/* Hover/focus: darken the whole image via an even overlay (no scrim movement) */
+.hero.heritage > div:first-child::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(0 0 0 / 0%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.hero.heritage:hover > div:first-child::before,
+.hero.heritage:focus-within > div:first-child::before {
+  background: rgb(0 0 0 / 30%);
+}
+
+/* Overlay content: title + subtext bottom-left, CTA pushed to the right.
+   Inline padding matches the site content edge (--content-padding-inline) so
+   the text aligns with the other blocks. */
+.hero.heritage > div:last-child {
+  align-items: flex-end;
+  padding: var(--space-xl) var(--content-padding-inline);
+}
+
+.hero.heritage > div:last-child > div {
+  flex-flow: row wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-l);
+  max-width: none;
+  width: 100%;
+  margin: 0;
+}
+
+.hero.heritage .hero-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.hero.heritage :is(h1, h2, h3) {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  color: var(--color-parchment);
+}
+
+.hero.heritage :is(h1, h2, h3)::after {
+  content: none;
+}
+
+/* Subtext shown at all breakpoints, in white */
+.hero.heritage p:not(.button-container) {
+  display: block;
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--body-font-size-l);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-parchment);
+}
+
+.hero.heritage p.button-container {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* CTA — bright-blue filled pill (matches the cards / subscribe-banner buttons) */
+.hero.heritage a.button:any-link {
+  padding: 12px 34px;
+  border: 1px solid var(--color-ford-blue-bright);
+  border-radius: 400px;
+  background: var(--color-ford-blue-bright);
+  color: var(--color-light);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.hero.heritage a.button:any-link:hover,
+.hero.heritage a.button:any-link:focus-visible {
+  border-color: var(--color-ford-blue-hover);
+  background: var(--color-ford-blue-hover);
+  color: var(--color-light);
+  transform: none;
+  box-shadow: none;
+}
+
+@media (width <= 599px) {
+  .hero.heritage > div:last-child > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* ==========================================================================
+   heritage-carousel — heritage image-overlay slides, one visible at a time,
+   navigated by dot indicators (top-right). Each slide reuses the exact
+   .hero.heritage overlay treatment.
+   Variant intentionally overrides base hero rules defined earlier.
+   ========================================================================== */
+/* stylelint-disable no-descending-specificity */
+.hero.heritage-carousel {
+  position: relative;
+  max-width: var(--grid-container-width);
+  margin: var(--main-block-space) auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* The viewport is .hero's only child, so base rules for both :first-child
+   (parchment fade) and :last-child (absolute overlay) would hit it. Reset both:
+   keep the viewport in normal flow and drop the white gradient. */
+.hero.heritage-carousel > div:first-child::after {
+  content: none;
+}
+
+.hero.heritage-carousel > .hero-carousel-viewport {
+  position: relative;
+  inset: auto;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Reset the base ".hero > div:last-child > div" rules (column layout, 25%
+   margins, max-width) that would otherwise hit the track + dots, since the
+   viewport is .hero's last child. */
+.hero.heritage-carousel .hero-carousel-viewport > .hero-carousel-track {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+
+  /* Cancel the base hero-enter animation (its keyframe sets translateY, which
+     would override the inline translateX that drives the carousel). */
+  animation: none;
+  transition: transform 0.5s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.hero.heritage-carousel .hero-carousel-viewport > .hero-carousel-dots {
+  flex-direction: row;
+  max-width: none;
+  margin: 0;
+  animation: none;
+}
+
+.hero.heritage-carousel .hero-slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* --- Slide internals mirror .hero.heritage exactly --- */
+
+/* Image (first child of the slide) */
+.hero.heritage-carousel .hero-slide > div:first-child {
+  position: relative;
+  line-height: 0;
+  aspect-ratio: 21 / 9;
+}
+
+.hero.heritage-carousel .hero-slide picture img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+}
+
+/* Bottom scrim for legibility (matches heritage) */
+.hero.heritage-carousel .hero-slide > div:first-child::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 60%) 0%, rgb(0 0 0 / 15%) 45%, transparent 75%);
+  pointer-events: none;
+}
+
+/* Text overlay (last child of the slide): title, subtext and CTA all stacked
+   bottom-left — consistent across slides regardless of heading length. */
+.hero.heritage-carousel .hero-slide > div:last-child {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--space-m);
+  padding: var(--space-xl) var(--content-padding-inline);
+}
+
+.hero.heritage-carousel .hero-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  max-width: 640px;
+}
+
+.hero.heritage-carousel :is(h1, h2, h3) {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  color: var(--color-parchment);
+}
+
+.hero.heritage-carousel :is(h1, h2, h3)::after {
+  content: none;
+}
+
+.hero.heritage-carousel p:not(.button-container) {
+  display: block;
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--body-font-size-l);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-parchment);
+}
+
+.hero.heritage-carousel p.button-container {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* CTA — bright-blue pill (matches heritage) */
+.hero.heritage-carousel a.button:any-link {
+  padding: 12px 34px;
+  border: 1px solid var(--color-ford-blue-bright);
+  border-radius: 400px;
+  background: var(--color-ford-blue-bright);
+  color: var(--color-light);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.hero.heritage-carousel a.button:any-link:hover,
+.hero.heritage-carousel a.button:any-link:focus-visible {
+  border-color: var(--color-ford-blue-hover);
+  background: var(--color-ford-blue-hover);
+  color: var(--color-light);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Dot indicators — top-right */
+.hero-carousel-dots {
+  position: absolute;
+  top: var(--space-m);
+  right: var(--space-l);
+  z-index: 2;
+  display: flex;
+  gap: var(--space-s);
+}
+
+.hero-carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 45%);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-carousel-dot[aria-current='true'] {
+  background: var(--color-ford-blue-bright);
+  transform: scale(1.15);
+}
+
+@media (width <= 599px) {
+  .hero.heritage-carousel .hero-slide > div:first-child {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */

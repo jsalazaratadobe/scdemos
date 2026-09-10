@@ -1,8 +1,8 @@
 footer {
   width: 100%;
-  background-color: light-dark(var(--color-rust), #080d0d);
-  color: var(--color-parchment);
-  border-top: light-dark(none, var(--border-heritage));
+  background-color: light-dark(#f0f0f0, #0f0f0f);
+  color: light-dark(#333, var(--color-parchment));
+  border-top: 1px solid light-dark(#9c9c9c, rgb(255 255 255 / 12%));
   font-size: var(--body-font-size-xs);
 }
 
@@ -27,7 +27,7 @@ footer .footer .section:first-child {
 
 /* Row 2: Tagline */
 footer .footer .section:nth-child(2) p {
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
   font-weight: 400;
   font-size: var(--body-font-size-s);
   opacity: 0.7;
@@ -37,7 +37,7 @@ footer .footer .section:nth-child(2) p {
 /* Row 3: Copyright + social icons (merged) */
 footer .footer .section:nth-child(3) {
   margin-top: var(--space-m);
-  border-top: 1px solid rgb(255 255 255 / 15%);
+  border-top: 1px solid light-dark(#9c9c9c, rgb(255 255 255 / 15%));
   padding-top: var(--space-m);
 }
 
@@ -68,14 +68,14 @@ footer .footer .section:nth-child(3) li {
 }
 
 footer .footer a:any-link {
-  color: var(--color-parchment);
-  text-decoration-color: rgb(245 242 237 / 30%);
+  color: light-dark(#333, var(--color-parchment));
+  text-decoration-color: light-dark(rgb(51 51 51 / 30%), rgb(245 242 237 / 30%));
   transition: color 0.25s, text-decoration-color 0.25s, opacity 0.25s;
 }
 
 footer .footer a:any-link:hover {
-  text-decoration-color: var(--color-gold);
-  color: var(--color-gold);
+  text-decoration-color: var(--color-ford-blue-bright);
+  color: var(--color-ford-blue-bright);
 }
 
 footer .footer .section:nth-child(3) ul a {
@@ -93,8 +93,15 @@ footer .footer .section:nth-child(3) ul a:hover {
 footer .footer .icon {
   width: 18px;
   height: 18px;
-  filter: brightness(0) invert(1);
+
+  /* Ford navy social icons on the light footer */
+  color: var(--color-ford-navy);
   transition: transform 0.25s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+/* Dark mode / dark scheme: invert social icons to white */
+:where(body.dark-scheme, body.dark, body.theme-dark) footer .footer .icon:not(.icon-logo) {
+  filter: brightness(0) invert(1);
 }
 
 footer .footer .icon.icon-logo {
@@ -105,7 +112,7 @@ footer .footer .icon.icon-logo {
   vertical-align: middle;
   margin-inline: 4px;
   filter: none;
-  color: var(--color-parchment);
+  color: light-dark(var(--color-ford-blue), var(--color-parchment));
 }
 
 footer .footer .icon.icon-logo :is(svg, img) {
